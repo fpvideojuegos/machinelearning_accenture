@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Reto - Asistente concesionario</title>
+</head>
+<body>
+
+    <header>
+        <h1>Asistente Concesionario <br>
+            <small>Reto Accenture</small>
+        </h1>
+    </header>
+    <section class="container-fluid">
+        <form action="{{ url_for('predict') }}" method="post">
+
+            <div>
+                <label for="buying"><h3>Precio - </h3></label>
+                <select id="buying" name="buying" required>
+                    <option value="" selected disabled hidden >Seleccionar opción</option>
+                    <option value="1">Bajo</option>
+                    <option value="2">Medio</option>
+                    <option value="3">Alto</option>
+                    <option value="4"><b>Muy</b> Alto</option>
+                </select>
+            </div>
+            <div>
+                <label for="maint"><h3>Coste por mantenimiento - </h3></label>
+                <select id="maint" name="maint" required>
+                    <option value="" selected disabled hidden >Seleccionar opción</option>
+                    <option value="1">Bajo</option>
+                    <option value="2">Medio</option>
+                    <option value="3">Alto</option>
+                    <option value="4"><b>Muy</b> Alto</option>
+                </select>
+            </div>
+            <div>
+                <label for="doors"><h3>Número de <b>puertas</b> - </h3></label>
+                <select id="doors" name="doors" required>
+                    <option value="" selected disabled hidden >Seleccionar opción</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 o más</option>
+                </select>
+            </div>
+            <div>
+                <label for="persons"><h3>Número de <b>plazas</b> - </h3></label>
+                <select id="persons" name="persons" required>
+                    <option value="" selected disabled hidden >Seleccionar opción</option>
+                    <option value="2">2</option>
+                    <option value="3">4</option>
+                    <option value="6">4 o más</option>
+                </select>
+            </div>
+            <div>
+                <label for="lug_boot"><h3>Capacidad maletero - </h3></label>
+                <select id="lug_boot" name="lug_boot" required>
+                    <option value="" selected disabled hidden >Seleccionar opción</option>
+                    <option value="1">Pequeño</option>
+                    <option value="2">Medio</option>
+                    <option value="3">Grande</option>
+                </select>
+            </div>
+            <div>
+                <label for="safety"><h3>Seguridad - </h3></label>
+                <select id="safety" name="safety" required>
+                    <option value="" selected disabled hidden >Seleccionar opción</option>
+                    <option value="1">Baja</option>
+                    <option value="2">Media</option>
+                    <option value="3">Alta</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" >Comprobar coche</button>
+
+        </form>
+    </section>
+    
+</body>
+</html>
