@@ -1,0 +1,221 @@
+
+
+
+<html>
+    <script type="text/javascript">
+    var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+        
+    var canvas2, ctx2, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init() {
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+        w = canvas.width;
+        h = canvas.height;
+    
+        canvas.addEventListener("mousemove", function (e) {
+            findxy('move', e)
+        }, false);
+        canvas.addEventListener("mousedown", function (e) {
+            findxy('down', e)
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+            findxy('up', e)
+        }, false);
+        canvas.addEventListener("mouseout", function (e) {
+            findxy('out', e)
+        }, false);
+        
+        canvas2 = document.getElementById('can2');
+        ctx2 = canvas2.getContext("2d");
+        w = canvas2.width;
+        h = canvas2.height;
+    
+        canvas2.addEventListener("mousemove", function (e) {
+            findxy2('move', e)
+        }, false);
+        canvas2.addEventListener("mousedown", function (e) {
+            findxy2('down', e)
+        }, false);
+        canvas2.addEventListener("mouseup", function (e) {
+            findxy2('up', e)
+        }, false);
+        canvas2.addEventListener("mouseout", function (e) {
+            findxy2('out', e)
+        }, false);
+    }
+    
+    function color(obj) {
+        switch (obj.id) {
+            case "green":
+                x = "green";
+                break;
+            case "blue":
+                x = "blue";
+                break;
+            case "red":
+                x = "red";
+                break;
+            case "yellow":
+                x = "yellow";
+                break;
+            case "orange":
+                x = "orange";
+                break;
+            case "black":
+                x = "black";
+                break;
+            case "white":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 2;
+    
+    }
+    
+    function draw() {
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(currX, currY);
+        ctx.strokeStyle = x;
+        ctx.lineWidth = y;
+        ctx.stroke();
+        ctx.closePath();
+    }
+    
+    function draw2() {
+        ctx2.beginPath();
+        ctx2.moveTo(prevX, prevY);
+        ctx2.lineTo(currX, currY);
+        ctx2.strokeStyle = x;
+        ctx2.lineWidth = y;
+        ctx2.stroke();
+        ctx2.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        // document.getElementById("canvasimg").style.border = "2px solid";
+        // var dataURL = canvas.toDataURL();
+        // document.getElementById("canvasimg").style.display = "inline";
+        // var img = document.getElementById("laimagen");
+        var canvas = document.getElementById("can");
+        var canvas2 = document.getElementById("can2");
+        var dato = canvas.toDataURL("image/png");
+        var dato2 = canvas2.toDataURL("image/png");
+        div = dato.split(",")
+        div2 = dato2.split(",")
+        div = div[1].toString();
+        div2 = div2[1].toString();
+        //console.log(div);
+        document.getElementById("imagen1").val = div;
+        imagen1.value = div;
+        document.getElementById("imagen2").val = div2;
+        imagen2.value = div2;
+        console.log(div)
+        console.log("ewe");
+        console.log(div2);
+    }
+    
+    function findxy(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas.offsetLeft;
+            currY = e.clientY - canvas.offsetTop;
+    
+            flag = true;
+            dot_flag = true;
+            if (dot_flag) {
+                ctx.beginPath();
+                ctx.fillStyle = x;
+                ctx.fillRect(currX, currY, 2, 2);
+                ctx.closePath();
+                dot_flag = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag = false;
+        }
+        if (res == 'move') {
+            if (flag) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.offsetLeft;
+                currY = e.clientY - canvas.offsetTop;
+                draw();
+            }
+        }
+    }
+    
+    function findxy2(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas2.offsetLeft;
+            currY = e.clientY - canvas2.offsetTop;
+    
+            flag2 = true;
+            dot_flag2 = true;
+            if (dot_flag2) {
+                ctx2.beginPath();
+                ctx2.fillStyle = x;
+                ctx2.fillRect(currX, currY, 2, 2);
+                ctx2.closePath();
+                dot_flag2 = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag2 = false;
+        }
+        if (res == 'move') {
+            if (flag2) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas2.offsetLeft;
+                currY = e.clientY - canvas2.offsetTop;
+                draw2();
+            }
+        }
+    }
+
+
+    </script>
+    <body onload="init()">
+        <canvas id="can" width="400" height="400" style="position:absolute;top:10%;left:10%;border:2px solid;"></canvas>
+        <canvas id="can2" width="400" height="400" style="position:absolute;top:10%;left:60%;border:2px solid;"></canvas>
+        <input type="button" value="save" id="btn" size="30" onclick="save()" style="position:absolute;top:55%;left:10%;">
+        <form action="{{ url_for('predict')}}" method="POST">
+            <input type="hidden" value="" id="imagen1" name="imagen1">
+            <select name="operacion">
+              <option value="1">+</option> 
+              <option value="2">-</option>
+              <option value="3">*</option>
+              <option value="4">/</option>
+            </select>
+            <input type="hidden" value="" id="imagen2" name="imagen2">
+            <input type="submit" value="predict">
+        </form>
+    </body>
+    </html>
