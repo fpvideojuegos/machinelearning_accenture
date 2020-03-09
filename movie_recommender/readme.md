@@ -1,4 +1,4 @@
-# <img src="logo.png" widht="50px" height="50px"> MIAUTÁSTICOS
+# <img src="logo.png" widht="60px" height="60px"> MIAUTÁSTICOS
 
 ## RECOMENDADOR DE PELIS
 
