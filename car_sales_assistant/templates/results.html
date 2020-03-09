@@ -4,33 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
     <title>Reto - Asistente concesionario</title>
 </head>
-<body>
+<body class="bg-dark text-light container-fluid justify-content-center align-items-center card">
 
     <header>
         <h1>Asistente Concesionario <br>
             <small>Reto Accenture</small>
         </h1>
     </header>
-    <section class="container-fluid">
-
-        <div class="btn btn-primary"><a class="text-light" href="http://localhost:8080">Volver</a></div>
+    <section class="container-fluid card card-md bg-dark mt-3 p-3 justify-content-center align-items-center">
 
         {% if prediction == 'success' %}
 
-            <h1 class="text-{{ prediction }}" >Es bastante recomendable</h1>
+            <h1 class="text-{{ prediction }} p-3" >Es bastante recomendable</h1>
 
         {% elif prediction == 'danger' %}
         
-            <h1 class="text-{{ prediction }}" >No es recomendable</h1>
+            <h1 class="text-{{ prediction }} p-3" >No es recomendable</h1>
         
         {% endif %}
-        {{data}}
         {% for key , value in data.items() %}
-            <h1 class="text-{{ prediction }}" >{{ nombreCol[key] }}</h1>:
-            <h1 class="text-{{ prediction }}" >{{ value.0 }}</h1>
+            <h5 class="text-{{ prediction }} p-2" >{{ nombreCol[key] }} : <i>{{ value.0 }} </i></h5>
         {% endfor %}
+
+        <div class="btn btn-primary w-75 m-3 ml-auto mr-auto"><a class="text-light" href="http://localhost:8080">Volver</a></div>
 
     </section>
     

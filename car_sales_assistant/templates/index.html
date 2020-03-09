@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
     <title>Reto - Asistente concesionario</title>
 </head>
-<body>
+<body class="bg-dark text-light container-fluid justify-content-center align-items-center card">
 
     <header>
         <h1>Asistente Concesionario <br>
             <small>Reto Accenture</small>
         </h1>
     </header>
-    <section class="container-fluid">
-        <form action="{{ url_for('predict') }}" method="post">
+    <section class="container-fluid card card-md bg-dark mt-3 p-3 justify-content-center align-items-center">
+        <form class="justify-content-center align-items-center" action="{{ url_for('predict') }}" method="post">
 
-            <div>
+            <div class="p-3">
                 <label for="buying"><h3>Precio - </h3></label>
                 <select id="buying" name="buying" required>
                     <option value="" selected disabled hidden >Seleccionar opción</option>
@@ -26,7 +27,7 @@
                     <option value="4"><b>Muy</b> Alto</option>
                 </select>
             </div>
-            <div>
+            <div class="p-3">
                 <label for="maint"><h3>Coste por mantenimiento - </h3></label>
                 <select id="maint" name="maint" required>
                     <option value="" selected disabled hidden >Seleccionar opción</option>
@@ -36,7 +37,7 @@
                     <option value="4"><b>Muy</b> Alto</option>
                 </select>
             </div>
-            <div>
+            <div class="p-3">
                 <label for="doors"><h3>Número de <b>puertas</b> - </h3></label>
                 <select id="doors" name="doors" required>
                     <option value="" selected disabled hidden >Seleccionar opción</option>
@@ -46,7 +47,7 @@
                     <option value="5">5 o más</option>
                 </select>
             </div>
-            <div>
+            <div class="p-3">
                 <label for="persons"><h3>Número de <b>plazas</b> - </h3></label>
                 <select id="persons" name="persons" required>
                     <option value="" selected disabled hidden >Seleccionar opción</option>
@@ -55,7 +56,7 @@
                     <option value="6">4 o más</option>
                 </select>
             </div>
-            <div>
+            <div class="p-3">
                 <label for="lug_boot"><h3>Capacidad maletero - </h3></label>
                 <select id="lug_boot" name="lug_boot" required>
                     <option value="" selected disabled hidden >Seleccionar opción</option>
@@ -64,7 +65,7 @@
                     <option value="3">Grande</option>
                 </select>
             </div>
-            <div>
+            <div class="p-3">
                 <label for="safety"><h3>Seguridad - </h3></label>
                 <select id="safety" name="safety" required>
                     <option value="" selected disabled hidden >Seleccionar opción</option>
@@ -73,7 +74,7 @@
                     <option value="3">Alta</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" >Comprobar coche</button>
+            <button type="submit" class="btn btn-primary w-100 m-3 ml-auto mr-auto" >Comprobar coche</button>
 
         </form>
     </section>

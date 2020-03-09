@@ -1,0 +1,38 @@
+html , body
+{
+    height: 100vh!important;
+    text-align: center;
+}
+
+.card-md
+{
+    width: 50%;
+}
+
+.text-success
+{
+    text-shadow: 0px 0px 4px rgba(32, 220, 32, 0.7) ;
+}
+
+.text-danger
+{
+    text-shadow: 0px 0px 4px rgba(230, 20, 22, 0.7) ;
+}
+
+.card-md
+{
+    box-shadow: 
+            inset 0px 2px 2px 1px grey,
+                  0px 2px 2px 1px #444,
+                  0px 2px 2px 1px grey,
+            inset 0px -2px 2px 1px #444
+            ;
+}
+
+@media screen and ( width: 768px )
+{
+    .card-md
+    {
+        width: 80%;
+    }
+}
