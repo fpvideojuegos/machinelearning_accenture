@@ -1,0 +1,320 @@
+{% extends 'base.html' %} 
+
+{% block contenido %}
+
+<!-- navbar -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav">
+    <img src="{{ url_for('static', filename='logo.png') }}" id="logo">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active lis">
+                <a class="nav-link" href="#">Miautásticos <span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+        <span class="navbar-text">
+            <h1 class="h1">RECOMENDADOR DE PELÍCULAS</h1>
+      </span>
+    </div>
+</nav>
+
+<!-- end navbar -->
+
+<div class="container">
+
+    <h1 class="tittle">¡PUNTÚA ESTAS PELÍCULAS PARA PODER RECOMENDARTE!</h1>
+
+    <form action="{{ url_for('recomendarPelis')}}" method="POST">
+
+
+        <div class="container">
+            <div class="card-group mt-3">
+
+                <div class="card p-1" style="width: 15rem; height: 37rem;text-align:center;">
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[0] }}.jpg" class="card-img-top foto" alt="{{ pelis[0] }}">
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[0]}}</h5>
+                            <div class="otro">
+                                <select class="ratings custom-select" name="rating0" required="required">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                    <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                    <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                    <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span></option>
+                                    <option value="5">5 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-1" style="width: 15rem; height: 37rem;text-align:center;">
+
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[1] }}.jpg" class="card-img-top foto" alt="{{ item }}">
+
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[1]}}</h5>
+                            <div class="otro">
+                            <select class="ratings custom-select" name="rating1" required="required">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span>
+                                </option>
+                                <option value="5">5 <span
+                                        style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-1" style="width: 15rem; height: 37rem;text-align:center;">
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[2] }}.jpg" class="card-img-top foto" alt="{{ item }}">
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[2]}}</h5>
+                            <div class="otro">
+                            <select class="ratings custom-select" name="rating2" required="required">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span>
+                                </option>
+                                <option value="5">5 <span
+                                        style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card-group mt-3">
+
+                <div class="card p-1" style="width: 15rem; height: 37rem;text-align:center;">
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[3] }}.jpg" class="card-img-top foto" alt="{{ pelis[3] }}">
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[3]}}</h5>
+                            <div class="otro">
+                            <select class="ratings custom-select" name="rating3" required="required">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span>
+                                </option>
+                                <option value="5">5 <span
+                                        style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-1" style="width: 15rem; height: 37rem;text-align:center;">
+
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[4] }}.jpg" class="card-img-top foto" alt="{{ item }}">
+
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[4]}}</h5>
+                            <div class="otro">
+                            <select class="ratings custom-select" name="rating4" required="required">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span>
+                                </option>
+                                <option value="5">5 <span
+                                        style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-1" style="width: 15rem;height: 37rem;text-align:center;">
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[5] }}.jpg" class="card-img-top foto" alt="{{ item }}">
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[5]}}</h5>
+                            <div class="otro">
+                            <select class="ratings custom-select" name="rating5" required="required">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span>
+                                </option>
+                                <option value="5">5 <span
+                                        style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                            </select>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="card-group mt-3">
+
+                <div class="card p-1" style="width: 15rem; height: 37rem;text-align:center;">
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[6] }}.jpg" class="card-img-top foto" alt="{{ pelis[6] }}">
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[6]}}</h5>
+                            <div class="otro">
+                            <select class="ratings custom-select" name="rating6" required="required">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span>
+                                </option>
+                                <option value="5">5 <span
+                                        style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-1" style="width: 15rem; height: 37rem;text-align:center;">
+
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[7] }}.jpg" class="card-img-top foto" alt="{{ item }}">
+
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[7]}}</h5>
+                            <div class="otro">
+                            <select class="ratings custom-select" name="rating7" required="required">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span>
+                                </option>
+                                <option value="5">5 <span
+                                        style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-1" style="width: 15rem; height: 37rem;text-align:center;">
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[8] }}.jpg" class="card-img-top foto" alt="{{ item }}">
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[8]}}</h5>
+                            <div class="otro">
+                            <select class="ratings custom-select" name="rating8" required="required">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span>
+                                </option>
+                                <option value="5">5 <span
+                                        style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card-group mt-2" style="width: 45rem; align-items:center;text-align:center;">
+
+                <div class="card p-1" style="width: rem; height: 37rem;">
+
+                    <img src="{{ url_for('static', filename='posters/') }}{{ pelis[9] }}.jpg" class="card-img-top foto" alt="{{ item }}">
+
+                    <div class="centradito mx-auto m-3">
+                        <!-- rating -->
+                        <div class="rating">
+                            <h5>{{pelis[9]}}</h5>
+                            <div class="otro">
+                            <select class="ratings custom-select" name="rating9" required="required">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1 <span style='font-size:100px;'>&#11088</span></option>
+                                <option value="2">2 <span style='font-size:100px;'>&#11088&#11088</span></option>
+                                <option value="3">3 <span style='font-size:100px;'>&#11088&#11088&#11088</span></option>
+                                <option value="4">4 <span style='font-size:100px;'>&#11088&#11088&#11088&#11088</span>
+                                </option>
+                                <option value="5">5 <span
+                                        style='font-size:100px;'>&#11088&#11088&#11088&#11088&#11088</span></option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-1" style="width: rem; height: 37rem; justify-content:center;text-align:center;">
+
+                    <!-- buton -->
+                    <div>
+                        <button type="submit" class="btn btn-success" style="width: 10rem; height: 6rem; font-size: 2.5rem">Enviar</button>
+                    </div>
+                    <!-- end button -->
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </form>
+
+
+    {% endblock %}

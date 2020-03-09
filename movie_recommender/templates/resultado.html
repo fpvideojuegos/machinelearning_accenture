@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    .contenedor {
+        background-color: lightgrey;
+        text-align: center;
+    }
+    
+    .tituloresult{
+        
+    }
+    
+{% endblock %}
+
+{% block contenido %}
+<!-- navbar -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav">
+    <img src="{{ url_for('static', filename='logo.png') }}" id="logo">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active lis">
+                <a class="nav-link" href="#">Miautásticos <span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+        <span class="navbar-text">
+            <h1 class="h1">RECOMENDADOR DE PELÍCULAS</h1>
+      </span>
+    </div>
+</nav>
+
+<!-- end navbar -->
+
+<div class="contenedor">
+
+    <div clas="tituloresult">
+        <br><br><br><h1 class="tittle">TE RECOMENDAMOS...</h1><br><br><br>
+    </div>
+    
+    
+    
+
+<div class="container-fluid" style="text-align: -webkit-center;">
+	<div class="row">
+		
+		
+		{% for item in resultado %}
+		{% if item != "index" %}
+		<div class="col-md-4 mb-5 mx-auto">
+		
+			<div class="card" style="width: 15rem; height: 31rem;text-align:center;">
+    			<img src="{{ url_for('static', filename='posters/') }}{{ item }}.jpg" class="card-img-top foto2" alt="{{ item }}">
+			
+    			<div class="centradito mx-auto m-3">
+    				<h6 class="card-body result">
+    					{{ item }}
+    				</h6>
+				</div>
+			</div>
+			
+		</div>
+		{% endif %}
+		{% endfor %}
+		
+		
+	</div>
+</div>
+
+</div>
+{% endblock %}
