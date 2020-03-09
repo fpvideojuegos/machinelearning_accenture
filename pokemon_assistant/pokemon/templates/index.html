@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pokédex</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		@media all {
+
+			div#pokedex {
+				width: 750px;
+				margin: 50px auto 0 auto;
+			}
+
+			div#left {
+				width: 400px;
+				height: 500px;
+				float: left;
+				position: relative;
+				z-index: 1;
+			}
+
+			div#right {
+				width: 350px;
+				height: 500px;
+				float: left;
+				position: relative;
+			}
+			/* izquierda */
+
+			div#curve1_left {
+				width: 201px;
+				height: 85px;
+				background-color: #8b0000;
+				float: left;
+				padding: 15px 0 0 15px;
+
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				box-shadow: -10px 9px #5e0000;
+				-webkit-box-shadow: -10px 9px #5e0000;
+				-moz-box-shadow: -10px 9px #5e0000;
+				-o-box-shadow: -10px 9px #5e0000;
+
+				border-bottom-right-radius: 85px 60px;
+				-webkit-border-bottom-right-radius: 85px 60px;
+				-moz-border-bottom-right-radius: 85px 60px;
+				-o-border-bottom-right-radius: 85px 60px;
+
+				border-top-left-radius: 30px;
+				-webkit-border-top-left-radius: 30px;
+				-moz-border-top-left-radius: 30px;
+				-o-border-top-left-radius: 30px;
+			}
+
+
+			div#bg_curve1_left {
+				width: 400px;
+				height: 80px;
+				background-color: #8b0000;
+
+				border-top-left-radius: 30px;
+				-webkit-border-top-left-radius: 30px;
+				-moz-border-top-left-radius: 30px;
+				-o-border-top-left-radius: 30px;
+			}
+
+			div#curve2_left {
+				width: 63px;
+				height: 451px;
+				background-color: #c00d0d;
+				float: right;
+
+				position: absolute;
+				bottom: 0;
+				right: 0;
+
+				border-top-left-radius: 85px 60px;
+				-webkit-border-top-left-radius: 85px 60px;
+				-moz-border-top-left-radius: 85px 60px;
+				-o-border-top-left-radius: 85px 60px;
+			}
+
+			div#bg_curve2_left {
+				width: 400px;
+				height: 420px;
+				background-color: #c00d0d;
+
+				box-shadow: -10px 9px #5e0000;
+				-webkit-box-shadow: -10px 9px #5e0000;
+				-moz-box-shadow: -10px 9px #5e0000;
+				-o-box-shadow: -10px 9px #5e0000;
+
+				border-bottom-left-radius: 30px;
+				-webkit-border-bottom-left-radius: 30px;
+				-moz-border-bottom-left-radius: 30px;
+				-o-border-bottom-left-radius: 30px;
+			}
+
+			div#buttonGlass {
+				width: 60px;
+				height: 60px;
+				margin-right: 15px;
+				border: 5px solid #fff;
+				float: left;
+
+				box-shadow: 0 0 10px #490000;
+				-webkit-box-shadow: 0 0 10px #490000;
+				-moz-box-shadow: 0 0 10px #490000;
+				-o-box-shadow: 0 0 10px #490000;
+
+				background: #05fbfb;
+
+				border-radius: 35px;
+				-webkit-border-radius: 35px;
+				-moz-border-radius: 35px;
+				-o-border-radius: 35px;
+				animation-name: anim;
+				animation-duration: 3s;
+				animation-iteration-count: infinite;
+			}
+
+			@keyframes anim {
+				0% {background-color: rgb(4, 0, 255);}
+				25% {background-color: rgb(0, 110, 255);}
+				50% {background-color: rgb(4, 0, 255);}
+				75% {background-color: rgb(0, 110, 255);}
+				100% {background-color: rgb(4, 0, 255);}
+			}
+
+			div#miniButtonGlass1 {
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				float: left;
+
+
+				border-radius: 20px;
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				-o-border-radius: 20px;
+
+				background-color: #fb7b7b;
+			}
+
+			div#miniButtonGlass2 {
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				float: left;
+
+				border-radius: 20px;
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				-o-border-radius: 20px;
+
+				background-color: #fbfb05;
+			}
+
+			div#miniButtonGlass3 {
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				float: left;
+
+				border-radius: 20px;
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				-o-border-radius: 20px;
+
+				background-color: #50fb05;
+			}
+
+			div#junction {
+				width: 60px;
+				height: 451px;
+				float: right;
+
+				background-color:#8b0000 ;
+				
+			}
+
+			div#junction1 {
+				height: 40px;
+				background-color: #5e0000;
+				opacity: 0.3;
+				margin-top: 50px;
+				margin-bottom: 262px;
+
+				border-top: 2px solid #330000;
+				border-bottom: 2px solid #330000;
+			}
+
+			div#junction2 {
+				height: 40px;
+				background-color: #5e0000;
+				opacity: 0.3;
+
+				border-top: 2px solid #330000;
+				border-bottom: 2px solid #330000;
+			}
+
+			/* derecha */
+
+			div#curve1_right {
+				width: 166px;
+				height: 451px;
+				background-color: #c00d0d;
+				float: right;
+
+				position: absolute;
+				bottom: 0;
+				left: 0;
+
+				border-top-right-radius: 85px 60px;
+				-webkit-border-right-left-radius: 85px 60px;
+				-moz-border-right-left-radius: 85px 60px;
+				-o-border-right-left-radius: 85px 60px;
+			}
+
+
+			div#bg_curve1_right {
+				width: 350px;
+				height: 80px;
+				background-color: #fff;
+
+				border-top-right-radius: 30px;
+				-webkit-border-top-right-radius: 30px;
+				-moz-border-top-right-radius: 30px;
+				-o-border-top-right-radius: 30px;
+			}
+
+			div#curve2_right {
+				width: 216px;
+				height: 100px;
+				background-color: #fff;
+				float: left;
+
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				border-bottom-left-radius: 85px 60px;
+				-webkit-border-bottom-left-radius: 85px 60px;
+				-moz-border-bottom-left-radius: 85px 60px;
+				-o-border-bottom-left-radius: 85px 60px;
+			}
+
+			div#bg_curve2_right {
+				width: 350px;
+				height: 420px;
+				background-color: #c00d0d;
+
+				border-bottom-right-radius: 30px;
+				-webkit-border-bottom-right-radius: 30px;
+				-moz-border-bottom-right-radius: 30px;
+				-o-border-bottom-right-radius: 30px;
+
+				box-shadow: -10px 9px #5e0000;
+				-webkit-box-shadow: -10px 9px #5e0000;
+				-moz-box-shadow: -10px 9px #5e0000;
+				-o-box-shadow: -10px 9px #5e0000;
+			}
+
+			div#stats {
+				height: 130px;
+				width: 280px;
+				padding: 10px;
+				background-color: #000000;
+				z-index: 1;
+				font-size: 13px;
+				font-family: arial, sans-serif;
+
+				position: absolute;
+				top: 130px;
+				left: 25px;
+
+				border-radius: 15px;
+				-webkit-border-radius: 15px;
+				-moz-border-radius: 15px;
+				-o-border-radius: 15px;
+			}
+
+			div#blueButtons1 {
+				z-index: 1;
+
+				position: absolute;
+				top: 295px;
+				left: 49px;
+			}
+
+			div#blueButtons2 {
+				z-index: 1;
+
+				position: absolute;
+				top: 335px;
+				left: 49px;
+			}
+
+			div.blueButton {
+				height: 35px;
+				width: 45px;
+				background-color: #003300;
+				float: left;
+				margin-right: 7px;
+
+				border-radius: 10px;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				-o-border-radius: 10px;
+
+				background-color:  #0851d1;
+			}
+
+			div#barbutton3 {
+				height: 13px;
+				width: 50px;
+				z-index: 1;
+
+				position: absolute;
+				top: 385px;
+				left: 210px;
+
+				border-radius: 100px;
+				-webkit-border-radius: 100px;
+				-moz-border-radius: 100px;
+				-o-border-radius: 100px;
+
+				background-color: #057b05;
+			}
+
+			div#barbutton4 {
+				height: 13px;
+				width: 50px;
+				z-index: 1;
+
+				position: absolute;
+				top: 385px;
+				left: 270px;
+
+				border-radius: 100px;
+				-webkit-border-radius: 100px;
+				-moz-border-radius: 100px;
+				-o-border-radius: 100px;
+
+				background-color: rgb(255, 123, 0);
+			}
+
+			div#miniButtonGlass4 {
+				width: 15px;
+				height: 15px;
+				float: left;
+				z-index: 1;
+
+				position: absolute;
+				top: 383px;
+				left: 25px;
+
+				border-radius: 20px;
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				-o-border-radius: 20px;
+
+				background-color: #ff9b5b;
+			}
+
+			div#miniButtonGlass5 {
+				width: 15px;
+				height: 15px;
+				float: left;
+				z-index: 1;
+
+				position: absolute;
+				top: 383px;
+				left: 51px;
+
+				border-radius: 20px;
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				-o-border-radius: 20px;
+
+				background-color: #057b05;
+			}
+
+			div#yellowBox1 {
+				width: 140px;
+				height: 70px;
+				z-index: 1;
+				background-color: #ffff00;
+
+				position: absolute;
+				top: 415px;
+				left: 25px;
+
+				border-radius: 15px;
+				-webkit-border-radius: 15px;
+				-moz-border-radius: 15px;
+				-o-border-radius: 15px;
+			}
+
+			div#yellowBox2 {
+				width: 140px;
+				height: 70px;
+				z-index: 1;
+				background-color: #ffff00;
+
+				position: absolute;
+				top: 415px;
+				left: 185px;
+
+				border-radius: 15px;
+				-webkit-border-radius: 15px;
+				-moz-border-radius: 15px;
+				-o-border-radius: 15px;
+			}
+
+		}
+	</style>
+	<script>
+		function mostrar() {
+			$.post("../main.py", { suggest: post }, function (result) {
+				$("#legendario").html(result);
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<div class="container-fluid mt-5 justify-content-center align-items-center">
+		<div class="row">
+			<div class="mx-auto d-block">
+				<img src="https://fontmeme.com/permalink/200210/962623425439d315d268352d8d03af21.png"
+					alt="fuente-pokemon" border="0">
+			</div>
+		</div>
+		<div id="pokedex" class="mb-5">
+			<div id="left">
+				<div id="logo"></div>
+				<div id="bg_curve1_left"></div>
+				<div id="bg_curve2_left">
+					<!-- formulario -->
+					<form action="{{ url_for('predict')}}" method="post" class="form-inline">
+						<div class="form-group">
+							<label for="HP" name="HP" class="align-items-center col-2 mt-3 pr-5 ml-5"><strong>HP</strong></label></td>
+							<input type="number" class="form-control mt-3" name="HP" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label for="attack" name="attack" class="align-items-center col-2 mt-3 pr-5 ml-5"><strong>Ataque</strong></label>
+							<input type="number" class="form-control mt-3" name="attack" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label for="defense" name="defense" class="align-items-center col-2 mt-3 pr-5 ml-5"><strong>Defensa</strong></label>
+							<input type="number" class="form-control mt-3" name="defense" required>
+						</div>
+
+						<div class="form-group">
+							<label for="speed" name="speed" class="align-items-center col-2 mt-3 pr-5 ml-5"><strong>Velocidad</strong></label>
+							<input type="number" class="form-control mt-3 mb-2" name="speed" required>
+						</div>
+
+						<div class="form-group">
+							<label for="egg_group" name="egg_group" class="align-items-center" class="form col-2 mt-5 pr-5"><strong>Nace de huevo</strong></label>
+							<select id="egg_group" name="egg_group" required class="mt-2 pr-5 ml-1">
+								<option value="0">No</option>
+								<option value="1">Sí</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="catch_rate" name="catch_rate" class="align-items-center col-4 mt-3 pl-4"><strong>Rango captura</strong></label>
+							<input type="number" class="form-control mt-3" name="catch_rate" required>
+						</div>
+						<div class="col-4 justify-content-center align-items-center">
+							<div class="row h-50"></div>
+							<div class="row ml-5 pl-5">
+								<button type="submit" class="btn btn-ttc mt-5" id="boton" onclick="mostrar()">Enviar</button>
+							</div>
+						</div>
+					</form>
+					<!-- fin formulario -->
+				</div>
+				<div id="curve1_left">
+					<div id="buttonGlass"></div>
+					<div id="miniButtonGlass1"></div>
+					<div id="miniButtonGlass2"></div>
+					<div id="miniButtonGlass3"></div>
+				</div>
+				<div id="curve2_left">
+					<div id="junction">
+						<div id="junction1"></div>
+						<div id="junction2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="right">
+			<div id="stats">
+				<div class="mt-4" id="legendario">
+					{% if prediction == 1%}
+					<h2 style="color:red; text-align: center;">Es legendario</h2>
+					{% elif prediction == 0%}
+					<h2 style="color:blue; text-align: center;">No es legendario</h2>
+					{% endif %}
+				</div>
+			</div>
+			<div id="blueButtons1">
+				<div class="blueButton"></div>
+				<div class="blueButton"></div>
+				<div class="blueButton"></div>
+				<div class="blueButton"></div>
+				<div class="blueButton"></div>
+			</div>
+			<div id="blueButtons2">
+				<div class="blueButton"></div>
+				<div class="blueButton"></div>
+				<div class="blueButton"></div>
+				<div class="blueButton"></div>
+				<div class="blueButton"></div>
+			</div>
+			<div id="miniButtonGlass4"></div>
+			<div id="miniButtonGlass5"></div>
+			<div id="barbutton3"></div>
+			<div id="barbutton4"></div>
+			<div id="yellowBox1"></div>
+			<div id="yellowBox2"></div>
+			<div id="bg_curve1_right"></div>
+			<div id="bg_curve2_right"></div>
+			<div id="curve1_right"></div>
+			<div id="curve2_right"></div>
+		</div>
+	</div>
+</body>
+
+</html>
