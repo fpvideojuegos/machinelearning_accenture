@@ -34,7 +34,7 @@ def predict():
     # Cargamos el clasificador
 
 
-        new_model = tf.keras.models.load_model('model_mnist.sav') # importar modelo
+        model = tf.keras.models.load_model('model_mnist.sav') # importar modelo
 
 
 	
@@ -44,7 +44,7 @@ def predict():
         print('hola')
         img = request.form.get("imagen1")
         img2 = request.form.get("imagen2")
-        ope = request.form.get("operacion")
+        ope = int(request.form.get("operacion"))
         print(ope)
         print(img2)
         print(img)
@@ -72,7 +72,7 @@ def predict():
         #invertimos la imagen
         temp = PIL.ImageOps.invert(temp.convert("RGB"))
         
-        #cambiamos tamaño
+        #cambiamos tamano
         temp = temp.resize((28,28))
         
         #pasamos a escala de grises
@@ -80,21 +80,19 @@ def predict():
         #normalizamos los colores entre 0 y 1
         temp=asarray(temp)/255
         
-        #mostramos la imagen
-        plt.imshow(temp)
         
         #hacemos la prediccion usando el modelo con predict
         pred = model.predict(temp.reshape(1,28,28))
         
         #cogemos el indice o posicion con mayor probabilidad
-        pred = np.argmax(prediction)
+        pred = np.argmax(pred)
         
         # IMAGEN 2
         temp=Image.open('./imagen2.png')
         #invertimos la imagen
         temp = PIL.ImageOps.invert(temp.convert("RGB"))
         
-        #cambiamos tamaño
+        #cambiamos tamano
         temp = temp.resize((28,28))
         
         #pasamos a escala de grises
@@ -102,27 +100,30 @@ def predict():
         #normalizamos los colores entre 0 y 1
         temp=asarray(temp)/255
         
-        #mostramos la imagen
-        plt.imshow(temp)
+       
         
         #hacemos la prediccion usando el modelo con predict
         prediction = model.predict(temp.reshape(1,28,28))
         pred2 = np.argmax(prediction)
         
         #Calculo de la operacion
-        if (ope==1):
-            resultado = "La suma es: ", pred+pred2
-        elif(ope==2):
-            resultado = "La resta es: ", pred-pred2
-        elif(ope==3):
-            resultado = "La multiplicación es: ", pred*pred2
-        elif(ope==4):
-            resultado = "La división es: ", pred/pred2
-        
-        
         resultado = 0;
+        print(type(ope))
+        if ope == 1:
+            print("AAAAAA")
+            resultado = pred + pred2
+        if ope == 2:
+            resultado = pred - pred2
+        if ope == 3:
+            resultado = pred * pred2
+        if ope == 4:
+            resultado = pred / pred2
+        
+        
+        
         print(pred2)
         print(pred)
+        print(resultado)
         return render_template('results.html',resultado = resultado, num1 = pred, num2 = pred2)
 
 
