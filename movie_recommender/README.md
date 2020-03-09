@@ -15,6 +15,6 @@ Después, se le envía al usuario una lista de cinco películas recomendadas que
 La aplicación recoge los datos proporcionados por el usuario y se los envía al modelo ya entrenado, para que devuelva unos resultados en función de los valores introducidos.
 
 ### QUIÉNES SOMOS
-Cristina Castillo Obregón
-María López Márquez
-Julián Serrano Salto
+<p>Cristina Castillo Obregón</p>
+<p>María López Márquez</p>
+<p>Julián Serrano Salto</p>
